@@ -12,36 +12,12 @@ export const imageExts = ['png', 'jpg', 'jpeg', 'svg', 'gif', 'webp'];
 
 const imageExtsRegex = new RegExp(`.(${imageExts.join('|')})$`, 'i');
 
-export const otherExts = [
-  'doc',
-  'docx',
-  'rtf',
-  'txt',
-  'odt',
-  'xls',
-  'xlsx',
-  'ppt',
-  'pptm',
-  'pptx',
-  'pdf',
-  'pages',
-  'mp4',
-  'mov',
-  'wmv',
-  'flv',
-  'avi',
-  'mkv',
-  'mp3',
-  'webm',
-  'wav',
-  'm4a',
-  'ogg',
-  '3gp',
-  'flac',
-  'msg',
-];
+// get vscode config memo.links.otherextensions
+//export const otherExts = vscode.workspace.getConfiguration('memo.links.otherExtensions');
+export const otherExts = workspace.getConfiguration().get('memo.links.otherextensions');
 
-const otherExtsRegex = new RegExp(`.(${otherExts.join('|')})$`, 'i');
+const otherExtsArray = otherExts as string[];
+const otherExtsRegex = new RegExp(`.(${otherExtsArray.join('|')})$`, 'i');
 
 // Remember to edit accordingly when extensions above edited
 export const commonExtsHint =
